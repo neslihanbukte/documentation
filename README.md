@@ -332,6 +332,7 @@ devops-challenge/
 - .gitlab-ci.yml Development
 Created a two-stage pipeline with the following configuration:
 
+
 <ul>
   <li><strong>Stage 1: Build</strong>
     <ul>
@@ -349,6 +350,8 @@ Created a two-stage pipeline with the following configuration:
 </ul>
 
 
+--- 
+
 <ul>
   <li><strong>Stage 2: Deploy</strong>
     <ul>
@@ -363,4 +366,5 @@ Created a two-stage pipeline with the following configuration:
     </ul>
   </li>
 </ul>
+
 
