@@ -115,7 +115,7 @@ sudo apt install gitlab-runner -y
 #### Verify Installation
 
 ```bash
-sudo systemctl status gitlab-runner
+gitlab-runner --version
 ```
 
 #### Create a project runner in gitlab
