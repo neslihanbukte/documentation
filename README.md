@@ -143,10 +143,13 @@ sudo gitlab-runner register
 
 You will be prompted for:
 
-◯ GitLab instance URL: https://gitlab.com/ (or your GitLab URL)
-◯ Registration token: (token from step 2)
-◯ Runner description: production-runner (or your preferred name)
-◯ Runner executor: docker
+<ul>
+  <li>GitLab instance URL: https://gitlab.com/ (or your GitLab URL)</li>
+  <li>Registration token: (token from step 2)</li>
+  <li>Runner description: production-runner (or your preferred name)</li>
+  <li>Runner executor: docker</li>
+</ul>
+
 
 #### Start and enable gitlab runner
 
