@@ -229,6 +229,7 @@ We will push our application image to the **GitLab Container Registry** so that 
   <li>Expiration date: (optional)</li>
   <li>Select scopes:</li>
 </ul> 
-
-✅ read_registry
-✅ write_registry
+<ul>
+  <li>✅ read_registry</li>
+  <li>✅ write_registry</li>
+</ul> 
