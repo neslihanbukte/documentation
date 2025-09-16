@@ -54,6 +54,14 @@ After installation, k3s starts automatically. Verify:
 sudo kubectl get nodes
 ```
 
+#### Get the master node token:
+
+```bash
+sudo cat /var/lib/rancher/k3s/server/node-token
+```
+Save this output - you'll need it when joining worker nodes.
+Also note the master's IP address (e.g., `192.168.1.10`).
+
 
 
 
