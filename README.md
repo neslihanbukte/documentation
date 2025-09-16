@@ -192,3 +192,43 @@ EXPOSE 5000
 CMD ["python", "app.py"]
 ```
 
+#### Build the docker image
+
+```bash
+cd code
+```
+
+```bash
+# build the docker image
+docker build -t my-python-app:latest .
+```
+
+
+## 4. Use GitLab project registry to upload Docker images
+
+We will push our application image to the **GitLab Container Registry** so that it can be used in the CI/CD pipeline.
+
+---
+
+#### Check Container Registry
+
+1. Go to your GitLab project
+2. Navigate to Deploy → Container Registry
+3. Note your registry URL: registry.gitlab.com/neslihanbukte-group/neslihanbukte-project
+
+#### Create Deploy Token
+
+1. Go to your GitLab project
+2. Navigate to Settings → Repository
+3. Expand Deploy tokens section
+4. Click Add token
+5. Fill in the token details:
+
+<ul>
+  <li>Name: docker-registry-token</li>
+  <li>Expiration date: (optional)</li>
+  <li>Select scopes:</li>
+</ul> 
+
+✅ read_registry
+✅ write_registry
