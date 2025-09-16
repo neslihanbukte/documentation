@@ -1,6 +1,6 @@
 ### 1. Install and configure a K3s cluster
 
-## Prerequisites
+#### Prerequisites
 
 - 3 Ubuntu Server VMs:
   - `k3s-master` (Master) → `10.34.19.64`
