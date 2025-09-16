@@ -277,5 +277,20 @@ devops-challenge/
   <li><strong>Purpose : </strong>Define chart metadata and version information</li>
   <li><strong>Content : </strong>Chart name, description, version, and application version</li>
   <li><strong>Key Elements : </strong> API version v2, application type chart</li>
-  
+  </ul>
+
+
+#### values.yaml configuration
+
+<ul>
+  <li><strong>Purpose:</strong> Define default values for Kubernetes resources</li>
+  <li><strong>Configured:</strong>
+    <ul>
+      <li>Container image repository and tag settings</li>
+      <li>Service configuration (port, type)</li>
+      <li>Resource limits and requests</li>
+      <li>Replica count for deployment</li>
+    </ul>
+  </li>
 </ul>
+
