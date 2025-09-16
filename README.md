@@ -146,7 +146,7 @@ You will be prompted for:
 <ul>
   <li>GitLab instance URL: https://gitlab.com/ (or your GitLab URL)</li>
   <li>Registration token: (your registration token)</li>
-  <li>Runner description: production-runner (or your preferred name)</li>
+  <li>Runner description: k3s (or your preferred name)</li>
   <li>Runner executor: docker</li>
 </ul>
 
