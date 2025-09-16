@@ -227,9 +227,10 @@ We will push our application image to the **GitLab Container Registry** so that 
 <ul>
   <li>Name: docker-registry-token</li>
   <li>Expiration date: (optional)</li>
-  <li>Select scopes:</li>
-</ul> 
-<ul>
-  <li>✅ read_registry</li>
-  <li>✅ write_registry</li>
-</ul> 
+  <li>Select scopes:
+    <ul>
+      <li>✅ read_registry</li>
+      <li>✅ write_registry</li>
+    </ul>
+  </li>
+</ul>
