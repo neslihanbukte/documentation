@@ -337,6 +337,7 @@ Created a two-stage pipeline with the following configuration:
   <li><strong>Stage 1: Build</strong>
     <ul>
       <li><strong>Purpose:</strong> Build and push Docker images to GitLab registry</li>
+      <li><strong>Image:</strong> Docker:latest with Docker-in-Docker (dind) service</li>
       <li><strong>Actions:</strong>
         <ul>
           <li>Build Docker image from Dockerfile in code/ folder</li>
@@ -344,10 +345,11 @@ Created a two-stage pipeline with the following configuration:
           <li>Push both tags to GitLab Container Registry</li>
         </ul>
       </li>
-      <li><strong>Tools:</strong> Docker-in-Docker (dind) service</li>
+      <li><strong>Authentication:</strong> Uses GitLab CI built-in registry variables</li>
     </ul>
   </li>
 </ul>
+
 
 
 --- 
@@ -355,41 +357,63 @@ Created a two-stage pipeline with the following configuration:
 <ul>
   <li><strong>Stage 2: Deploy</strong>
     <ul>
-      <li><strong>Purpose:</strong> Deploy application to K3s cluster using Helm</li>
-      <li><strong>Tools Setup:</strong>
+      <li><strong>Runner:</strong> Uses k3s-master tagged runner (direct K3s access)</li>
+      <li><strong>Kubernetes Setup:</strong> Uses local kubeconfig from K3s master node</li>
+      <li><strong>Docker Registry Secret:</strong> Creates secret for private registry access</li>
+      <li><strong>PostgreSQL Deployment:</strong>
         <ul>
-          <li>Alpine/Helm image as base</li>
-          <li>Install kubectl for Kubernetes interaction</li>
-          <li>Configure kubeconfig from GitLab CI variables</li>
+          <li>Adds Bitnami Helm repository</li>
+          <li>Deploys PostgreSQL with custom credentials (postgres/postgres)</li>
+          <li>Creates database named 'myapp'</li>
         </ul>
       </li>
-      <li><strong>Deployment Actions:</strong>
+      <li><strong>Application Deployment:</strong>
         <ul>
-          <li>Run helm upgrade --install command</li>
-          <li>Override image repository and tag from build stage</li>
-          <li>Deploy to default namespace</li>
-          <li>Verify deployment with kubectl commands</li>
+          <li>Deploys Python app using local Helm chart</li>
+          <li>Sets image repository and commit SHA tag</li>
+          <li>Configures NodePort service on port 30080</li>
         </ul>
       </li>
+      <li><strong>Deployment Trigger:</strong> Only runs on main branch commits</li>
     </ul>
   </li>
 </ul>
 
-#### GitLab Configuration Requirements
+
+#### Pipeline Variables Configuration
 
 <ul>
-  <li><strong>CI/CD Variables Setup</strong>
+  <li><strong>IMAGE_TAG:</strong> Static latest tag for registry reference</li>
+  <li><strong>Docker Configuration:</strong> Overlay2 driver and TLS cert directory</li>
+  <li><strong>Registry Access:</strong> Uses GitLab CI built-in variables for authentication</li>
+</ul>
+
+
+#### Pipeline Features Implemented
+
+<ul>
+  <li><strong>Direct K3s Access:</strong> Runner executes directly on K3s master node</li>
+  <li><strong>Registry Secret Management:</strong> Automatic creation of Docker registry secret</li>
+  <li><strong>Database Integration:</strong> PostgreSQL deployment included in pipeline</li>
+  <li><strong>NodePort Exposure:</strong> Application automatically exposed on port 30080</li>
+  <li><strong>Image Versioning:</strong> Uses commit SHA for precise image tracking</li>
+  <li><strong>Single Branch Deployment:</strong> Only deploys from main branch</li>
+</ul>
+
+
+#### Gitlab configuration requirements
+
+<ul>
+  <li><strong>CI/CD Variables Setup:</strong>
     <ul>
       <li>KUBE_CONFIG: Base64 encoded kubeconfig file from K3s master node</li>
       <li>Registry Authentication: Automatic via GitLab CI built-in variables</li>
     </ul>
   </li>
-  <li><strong>Runner Requirements</strong>
+  <li><strong>Runner Requirements:</strong>
     <ul>
       <li>Docker executor capability for building images</li>
       <li>Access to Kubernetes cluster for deployment</li>
     </ul>
   </li>
 </ul>
-
-
