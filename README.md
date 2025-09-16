@@ -42,6 +42,17 @@ sudo tee -a /etc/hosts > /dev/null <<EOF
 EOF
 ```
 
+#### Install K3s on the master node 
+
+``bash
+curl -sfL https://get.k3s.io | sh -
+```
+
+After installation, k3s starts automatically. Verify: 
+
+```bash
+sudo kubectl get nodes
+```
 
 
 
