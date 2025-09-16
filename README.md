@@ -375,5 +375,21 @@ Created a two-stage pipeline with the following configuration:
   </li>
 </ul>
 
+#### GitLab Configuration Requirements
+
+<ul>
+  <li><strong>CI/CD Variables Setup</strong>
+    <ul>
+      <li>KUBE_CONFIG: Base64 encoded kubeconfig file from K3s master node</li>
+      <li>Registry Authentication: Automatic via GitLab CI built-in variables</li>
+    </ul>
+  </li>
+  <li><strong>Runner Requirements</strong>
+    <ul>
+      <li>Docker executor capability for building images</li>
+      <li>Access to Kubernetes cluster for deployment</li>
+    </ul>
+  </li>
+</ul>
 
 
