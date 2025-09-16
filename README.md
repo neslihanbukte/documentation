@@ -363,8 +363,17 @@ Created a two-stage pipeline with the following configuration:
           <li>Configure kubeconfig from GitLab CI variables</li>
         </ul>
       </li>
+      <li><strong>Deployment Actions:</strong>
+        <ul>
+          <li>Run helm upgrade --install command</li>
+          <li>Override image repository and tag from build stage</li>
+          <li>Deploy to default namespace</li>
+          <li>Verify deployment with kubectl commands</li>
+        </ul>
+      </li>
     </ul>
   </li>
 </ul>
+
 
 
