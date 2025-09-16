@@ -60,6 +60,7 @@ sudo kubectl get nodes
 sudo cat /var/lib/rancher/k3s/server/node-token
 ```
 Save this output - you'll need it when joining worker nodes.
+
 Also note the master's IP address (e.g., `192.168.1.10`).
 
 
