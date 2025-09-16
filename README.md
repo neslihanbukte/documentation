@@ -274,8 +274,8 @@ devops-challenge/
 #### Chart.yaml Creation
 
 <ul>
-  <li><strong>Purpose:</strong>Define chart metadata and version information</li>
-  <li><strong>Content:</strong>Chart name, description, version, and application version</li>
-  <li><strong>Key Elements:</strong> API version v2, application type chart</li>
+  <li><strong>Purpose : </strong>Define chart metadata and version information</li>
+  <li><strong>Content : </strong>Chart name, description, version, and application version</li>
+  <li><strong>Key Elements : </strong> API version v2, application type chart</li>
   
 </ul>
