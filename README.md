@@ -1,4 +1,4 @@
-# 1. Install and configure a K3s cluster
+### 1. Install and configure a K3s cluster
 
 ## 1. Prerequisites
 
