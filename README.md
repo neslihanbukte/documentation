@@ -329,50 +329,35 @@ devops-challenge/
 
 
 ### GitLab CI/CD Pipeline Creation
+- .gitlab-ci.yml Development
+Created a two-stage pipeline with the following configuration:
 
 <ul>
-  <li><strong>.gitlab-ci.yml Development:</strong> Created a two-stage pipeline with the following configuration:
+  <li><strong>Stage 1: Build</strong>
     <ul>
-      <li><strong>Stage 1: Build</strong>
+      <li><strong>Purpose:</strong> Build and push Docker images to GitLab registry</li>
+      <li><strong>Actions:</strong>
         <ul>
-          <li><strong>Purpose:</strong> Build and push Docker images to GitLab registry</li>
-          <li><strong>Actions:</strong>
-            <ul>
-              <li>Build Docker image from Dockerfile in code/ folder</li>
-              <li>Tag image with commit SHA and latest</li>
-              <li>Push both tags to GitLab Container Registry</li>
-            </ul>
-          </li>
-          <li><strong>Tools:</strong> Docker-in-Docker (dind) service</li>
+          <li>Build Docker image from Dockerfile in code/ folder</li>
+          <li>Tag image with commit SHA and latest</li>
+          <li>Push both tags to GitLab Container Registry</li>
         </ul>
       </li>
+      <li><strong>Tools:</strong> Docker-in-Docker (dind) service</li>
+    </ul>
+  </li>
+</ul>
 
-      <li><strong>Stage 2: Deploy</strong>
-        <ul>
-          <li><strong>Purpose:</strong> Deploy application to K3s cluster using Helm</li>
-          <li><strong>Tools Setup:</strong>
-            <ul>
-              <li>Alpine/Helm image as base</li>
-              <li>Install kubectl for Kubernetes interaction</li>
-              <li>Configure kubeconfig from GitLab CI variables</li>
-            </ul>
-          </li>
-          <li><strong>Deployment Actions:</strong>
-            <ul>
-              <li>Run helm upgrade --install command</li>
-              <li>Override image repository and tag from build stage</li>
-              <li>Deploy to default namespace</li>
-              <li>Verify deployment with kubectl commands</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
 
-      <li><strong>Pipeline Variables Configuration:</strong>
+<ul>
+  <li><strong>Stage 2: Deploy</strong>
+    <ul>
+      <li><strong>Purpose:</strong> Deploy application to K3s cluster using Helm</li>
+      <li><strong>Tools Setup:</strong>
         <ul>
-          <li>Docker Image Names: Dynamic image naming using GitLab CI variables</li>
-          <li>Helm Release: Defined release name for consistent deployments</li>
-          <li>Kubeconfig: Environment variable for K3s cluster access</li>
+          <li>Alpine/Helm image as base</li>
+          <li>Install kubectl for Kubernetes interaction</li>
+          <li>Configure kubeconfig from GitLab CI variables</li>
         </ul>
       </li>
     </ul>
