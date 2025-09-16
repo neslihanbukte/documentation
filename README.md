@@ -13,6 +13,35 @@ Update all packages:
 sudo apt update && sudo apt upgrade -y
 ```
 
+#### Turn off swap
+
+```bash
+sudo swapoff -a 
+sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+```
+
+#### Set hostname (must be different for each node)
+
+```bash
+sudo hostnamectl set-hostname k3s-master   # for master
+```
+```bash
+sudo hostnamectl set-hostname k3s-worker1  # for worker 1
+```
+```bash
+sudo hostnamectl set-hostname k3s-worker2  # for worker 2
+```
+
+#### Add static host entries (same configuration on all nodes)
+
+```bash
+sudo tee -a /etc/hosts > /dev/null <<EOF
+10.34.19.64 k3s-master
+10.34.19.65 k3s-worker1
+10.34.19.66 k3s-worker2
+EOF
+```
+
 
 
 
