@@ -258,9 +258,9 @@ devops-challenge/
 │ ├── Chart.yaml
 │ ├── values.yaml
 │ └── templates/
-│ ├── deployment.yaml
-│ ├── service.yaml
-│ └── _helpers.tpl
+│      ├── deployment.yaml
+│      ├── service.yaml
+│      └── _helpers.tpl
 ├── infra/
 │ ├── gitlab-runner/
 │ └── postgres/
