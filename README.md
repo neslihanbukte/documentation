@@ -123,8 +123,10 @@ sudo systemctl status gitlab-runner
 2. Navigate to: Settings → CI/CD → Runners.
 3. Click "Create project runner".
 4. Provide: 
-     ◯ Description: e.g., my-project-runner
-     ◯ Tags: optional, e.g., docker,linux
+<ul>
+  <li>◯ <strong>Description:</strong> e.g., my-project-runner</li>
+  <li>◯ <strong>Tags:</strong> optional, e.g., docker,linux</li>
+</ul>
 
 After clicking Create runner, GitLab will generate:
      ◯ a registration token
