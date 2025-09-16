@@ -63,6 +63,19 @@ Save this output - you'll need it when joining worker nodes.
 
 Also note the master's IP address (e.g., `192.168.1.10`).
 
+#### Worker Node Setup
+
+Execute this command on each worker node:
+
+```bash
+curl -sfL https://get.k3s.io | K3S_URL="https://<MASTER_NODE_IP>:6443" K3S_TOKEN="<NODE_TOKEN>" sh -
+```
+
+<MASTER_NODE_IP>: Master node's IP address
+<NODE_TOKEN>: Token from /var/lib/rancher/k3s/server/node-token on the master node
+
+
+
 
 
 
