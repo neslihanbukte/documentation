@@ -72,6 +72,7 @@ curl -sfL https://get.k3s.io | K3S_URL="https://<MASTER_NODE_IP>:6443" K3S_TOKEN
 ```
 
 <MASTER_NODE_IP>: Master node's IP address
+
 <NODE_TOKEN>: Token from /var/lib/rancher/k3s/server/node-token on the master node
 
 
