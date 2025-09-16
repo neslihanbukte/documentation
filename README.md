@@ -75,8 +75,28 @@ curl -sfL https://get.k3s.io | K3S_URL="https://<MASTER_NODE_IP>:6443" K3S_TOKEN
 
 <NODE_TOKEN>: Token from /var/lib/rancher/k3s/server/node-token on the master node
 
+#### Cluster Verification
 
+On the master node:
 
+```bash
+sudo kubectl get nodes -o wide
+```
+
+#### Using kubectl
+
+By default, `kubectl` only works with root. To use it with a regular user:
+
+```bash
+mkdir -p $HOME/.kube
+sudo cp /etc/rancher/k3s/k3s.yaml $HOME/.kube/config
+sudo chown $USER:$USER $HOME/.kube/config
+```
+Now you can:
+
+``bash
+kubectl get pods -A
+```
 
 
 
