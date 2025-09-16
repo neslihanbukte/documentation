@@ -249,11 +249,21 @@ We will push our application image to the **GitLab Container Registry** so that 
 #### helm chart structure 
 
 ```bash
-chart/
-├── Chart.yaml
-├── values.yaml
-├── templates/
-│   ├── deployment.yaml
-│   ├── service.yaml
-│   └── _helpers.tpl
+devops-challenge/
+├── code/
+│ ├── app.py
+│ ├── Dockerfile
+│ └── requirements.txt
+├── chart/
+│ ├── Chart.yaml
+│ ├── values.yaml
+│ └── templates/
+│ ├── deployment.yaml
+│ ├── service.yaml
+│ └── _helpers.tpl
+├── infra/
+│ ├── gitlab-runner/
+│ └── postgres/
+├── .gitlab-ci.yml
+└── README.md
 ```
