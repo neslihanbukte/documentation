@@ -1,4 +1,4 @@
-### 1. Install and configure a K3s cluster
+## 1. Install and configure a K3s cluster
 
 #### Prerequisites
 
@@ -98,7 +98,15 @@ Now you can:
 kubectl get pods -A
 ```
 
+## 2. Install and configure a K3s cluster
+- Connect it to your GitLab project
 
+#### Add GitLab Repository
+
+```bash
+# Add GitLab repository
+curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
+```
 
 
 
