@@ -294,3 +294,35 @@ devops-challenge/
   </li>
 </ul>
 
+
+#### templates/ Folder Structure
+
+<ul>
+  <li><strong>Created:</strong> templates/ directory under chart folder</li>
+  <li><strong>Added:</strong> Kubernetes manifest templates using Helm templating</li>
+</ul>
+
+
+#### deployment-service.yaml Implementation
+
+<ul>
+  <li><strong>Separate Files:</strong> Created individual deployment.yaml and service.yaml files</li>
+  <li><strong>Deployment:</strong> Configured pod replicas, container specs, resource limits</li>
+  <li><strong>Service:</strong> Defined ClusterIP service to expose the application</li>
+  <li><strong>Templating:</strong> Used Helm template functions for dynamic values</li>
+</ul>
+
+
+#### _helpers.tpl Implementation
+
+<ul>
+  <li><strong>Purpose:</strong> Define reusable template helpers and functions</li>
+  <li><strong>Functions Created:</strong>
+    <ul>
+      <li>Chart name and fullname generators</li>
+      <li>Common labels template</li>
+      <li>Selector labels template</li>
+      <li>Chart version template</li>
+    </ul>
+  </li>
+</ul>
