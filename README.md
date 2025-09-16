@@ -173,4 +173,22 @@ sudo gitlab-runner status
 sudo gitlab-runner list
 ``` 
 
+## 3. Package the application as a Docker image
+- add a dockerfile under code folder 
+
+We will containerize the application using Docker. The project structure includes a `code/` folder where we will add the `Dockerfile`.
+
+Create a file named `Dockerfile` inside the `code/` directory with the following content:
+
+#### Create Dockerfile
+
+```bash
+FROM python:3.12-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+EXPOSE 5000
+CMD ["python", "app.py"]
+```
 
