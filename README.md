@@ -94,7 +94,7 @@ sudo chown $USER:$USER $HOME/.kube/config
 ```
 Now you can:
 
-``bash
+```bash
 kubectl get pods -A
 ```
 
