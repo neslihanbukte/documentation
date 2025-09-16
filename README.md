@@ -205,6 +205,8 @@ docker build -t my-python-app:latest .
 
 
 ## 4. Use GitLab project registry to upload Docker images
+- create an access token to read & write private registry
+
 
 We will push our application image to the **GitLab Container Registry** so that it can be used in the CI/CD pipeline.
 
@@ -234,3 +236,24 @@ We will push our application image to the **GitLab Container Registry** so that 
     </ul>
   </li>
 </ul>
+
+6. Click Create deploy token
+7. Copy and save both username and token (you won't see them again)
+
+
+## 5. Create a GitLab CI/CD pipeline
+- Use `gitlab-ci.yml` to build and deploy the Python application into the Kubernetes cluster using Helm
+
+
+
+#### helm chart structure 
+
+```bash
+chart/
+├── Chart.yaml
+├── values.yaml
+├── templates/
+│   ├── deployment.yaml
+│   ├── service.yaml
+│   └── _helpers.tpl
+```
