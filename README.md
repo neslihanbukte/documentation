@@ -98,15 +98,71 @@ Now you can:
 kubectl get pods -A
 ```
 
-## 2. Install and configure a K3s cluster
+## 2. Install and configure a GitLab CI runner/agent
 - Connect it to your GitLab project
 
 #### Add GitLab Repository
 
 ```bash
-# Add GitLab repository
 curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
 ```
 
+#### Install GitLab Runner
+```bash
+sudo apt install gitlab-runner -y
+```
+
+#### Verify Installation
+
+```bash
+sudo systemctl status gitlab-runner
+```
+
+#### Create a project runner in gitlab
+1. Go to your GitLab project.
+2. Navigate to: Settings → CI/CD → Runners.
+3. Click "Create project runner".
+4. Provide: 
+     ◯ Description: e.g., my-project-runner
+     ◯ Tags: optional, e.g., docker,linux
+
+After clicking Create runner, GitLab will generate:
+     ◯ a registration token
+     ◯ the exact registration command to run on your machine
+
+#### Register the runner
+
+```bash
+sudo gitlab-runner register
+```
+
+You will be prompted for:
+
+◯ GitLab instance URL: https://gitlab.com/ (or your GitLab URL)
+◯ Registration token: (token from step 2)
+◯ Runner description: production-runner (or your preferred name)
+◯ Runner executor: docker
+
+#### Start and enable gitlab runner
+
+```bash
+# enable auto-start on boot
+sudo systemctl enable gitlab-runner
+```
+
+```bash
+# start gitLab runner service
+sudo systemctl start gitlab-runner
+```
+
+```bash
+# verify runner status
+sudo gitlab-runner status
+```
+
+```bash
+# list registered runners
+sudo gitlab-runner list
+``` 
 
 
