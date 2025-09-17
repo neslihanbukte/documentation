@@ -426,4 +426,5 @@ Created a two-stage pipeline with the following configuration:
 - [GitLab CI/CD Documentation](https://docs.gitlab.com/ee/ci/)
 - [GitLab Container Registry](https://docs.gitlab.com/ee/user/packages/container_registry/)
 - [Kubernetes Documentation](https://kubernetes.io/docs/home/)
+- [GitLab Docs] (https://docs.gitlab.com/ci/quick_start/)
 
