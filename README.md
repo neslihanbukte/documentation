@@ -417,3 +417,13 @@ Created a two-stage pipeline with the following configuration:
     </ul>
   </li>
 </ul>
+
+
+## References
+
+- [K3s Documentation](https://docs.k3s.io/)
+- [Helm Documentation](https://helm.sh/docs/)
+- [GitLab CI/CD Documentation](https://docs.gitlab.com/ee/ci/)
+- [GitLab Container Registry](https://docs.gitlab.com/ee/user/packages/container_registry/)
+- [Kubernetes Documentation](https://kubernetes.io/docs/home/)
+
