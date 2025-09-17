@@ -428,6 +428,68 @@ Created a two-stage pipeline with the following configuration:
 - [Kubernetes Documentation](https://kubernetes.io/docs/home/)
 - [GitLab Docs](https://docs.gitlab.com/ci/quick_start/)
 - [İnstalling K3S](https://medium.com/@josephsims1/getting-started-with-k3s-a-practical-guide-to-setup-and-scaling-86769e873ad5)
+- [Gitlab Runner Installation Steps](https://medium.com/t%C3%BCrk-telekom-bulut-teknolojileri/gitlab-runner-installation-steps-2e2b5c11ffd6)
+- [Kubernetes Deployments with Helm Charts](https://medium.com/@tolgahanayaz0/helm-charts-ile-kubernetes-deploymentlar%C4%B1-nas%C4%B1l-10-dakikada-otomatikle%C5%9Ftirdim-009335278d8a)
+
+
+
+## Troubleshooting / Karşılaşılan Hatalar
+
+### 1. `alpine/helm` image entrypoint sorunu
+**Hata Mesajı:**
+
+
+**Açıklama:**  
+`alpine/helm` imajının entrypoint’i doğrudan `helm` binary’si olduğu için, `sh` gibi shell komutları çalışmıyor.  
+
+**Çözüm:**  
+GitLab Runner’ın executor tipini **shell** olarak değiştirdim. Böylece komutlar normal şekilde çalışmaya başladı.
+
+---
+
+### 2. GitLab Runner `tags` sorunu
+**Hata:**  
+Pipeline çalıştırılırken “tag bulunamadı” uyarısı geldi.  
+
+**Açıklama:**  
+Runner’ın register edilirken tanımlanan tag ile `.gitlab-ci.yml` içindeki `tags` uyuşmuyordu.  
+
+**Çözüm:**  
+Runner’ın tag’ini doğru ayarladım ve `.gitlab-ci.yml` içindeki job’lara aynı tag’i ekledim.
+
+---
+
+### 3. Bitnami Postgres Chart bulunamadı
+**Hata Mesajı:**
+
+
+**Açıklama:**  
+`helm repo add` ile eklenmesine rağmen chart adı yanlış verilmiş veya repo tam güncellenmemişti.  
+
+**Çözüm:**  
+Repo’yu tekrar `helm repo add` + `helm repo update` ile ekledim ve doğru chart adını kullandım (`bitnami/postgresql`).
+
+---
+
+### 4. Helm Chart dosya adı hatası
+**Hata Mesajı:**
+
+
+**Açıklama:**  
+Chart metadata dosyasının adı `Chart.yaml` olmalıydı, yanlışlıkla `chart.yaml` yazdım.
+
+**Çözüm:**  
+Dosyanın adını `Chart.yaml` olarak düzelttim, pipeline bundan sonra doğru çalıştı.
+
+---
+
+## Notlar
+- Build aşaması sorunsuzdu, hatalar genellikle **deploy aşamasında** ortaya çıktı.  
+- Küçük yazım hataları (örneğin `Chart.yaml` dosya adı) pipeline’ı tamamen bozabiliyor.  
+- Bu deneyim bana Helm chart dizin yapısını ve GitLab Runner yapılandırmasını dikkatle kontrol etmenin önemini gösterdi.
+
+
+
 
 
 
